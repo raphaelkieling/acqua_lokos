@@ -1,0 +1,24 @@
+---------Anotações Projeto-------------
+1-Criar modelo banco de dados
+2-Layout (Fechando com o banco de dados)
+3-Imagens e ícones
+4-Desenvolver front-end
+	4.1- Login deve conter o menu e a caixa de acesso.
+	4.2- Principal deve conter urgencias, pendencias com prazo esgotando de horas.
+	4.3- Change logs para o administrativo acompanhar o desenvolvimento.
+	4.4- Avisos importantes.
+5-Sistema de login
+6-Cadastro de funcionário
+7-Dar login a funcionário
+8-Dar acesso a funcionário
+9  -Criar Categorias
+9.1-Criar subcategorias relacionadas com a categoria principal
+10-Criar um chamado
+11-Verificar chamado
+12-Excluir um chamado
+13-Modificar um chamado
+14-Refinar sistema de chamado (Layout, imagens,Limite de caracteres na descrição)
+15-Verificação de prazo constante
+16-Enviar email ao concluir o prazo determinado pelo criador do chamado
+17-Central de notificações de cada usario
+18-CRIAR área no chamado
