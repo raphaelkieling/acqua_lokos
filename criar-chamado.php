@@ -79,13 +79,11 @@
 					<th>Hora</th>
 					<td>
 						<?php  
+							date_default_timezone_set('America/Sao_Paulo');
 							$hora = date('H:i');
 							echo "<input type='text' name='hora_c' readonly value=".$hora.">";
 						?>
 					</td>
-				</tr>
-				<tr>
-					<th colspan="4"><center>Categorias</center></th>
 				</tr>
 				<tr>
 					<th>N0</th>
@@ -187,11 +185,11 @@
 					</td>
 					<td>
 						Defeito:
-						<input name="tipoProblema" value="Defeito" type="radio">
+						<input name="tipoProblema" value="Defeito" type="radio" required>
 					</td>
 					<td>
 						Dúvida:
-						<input name="tipoProblema" value="Dúvida" type="radio">
+						<input name="tipoProblema" value="Dúvida" type="radio" required>
 					</td>
 				</tr>
 				<tr>

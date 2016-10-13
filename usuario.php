@@ -29,7 +29,7 @@
 				<tr>
 					<td>Id Funcionário:</td>
 					<td>
-						<select name="id_u" id="">
+						<select name="id_u" id="" required>
 						<?php 
 						$select = mostrarFuncionario($conexao);
 						while($funcionario = mysqli_fetch_assoc($select)){
@@ -41,12 +41,12 @@
 				</tr>
 				<tr>
 					<td>Senha:</td>
-					<td><input type="text" name="senha_u"></td>
+					<td><input type="text" name="senha_u" required></td>
 				</tr>
 				<tr>
 					<td>Acesso</td>
 					<td>
-						<select name="acesso_u" id="">
+						<select name="acesso_u" id="" required>
 							<option value="0">Nenhum</option>
 							<option value="1">Consultar Chamados</option>
 							<option value="2">Criar Chamados</option>

@@ -1,5 +1,8 @@
 
 <?php 
+	date_default_timezone_set('America/Sao_Paulo');
+	ini_set('display_errors',1);
+	ini_set('display_startup_erros',1);
 	error_reporting(E_ALL);
 	// ARQUIVO BASE PARA O FUNCIONAMENTO, CENTRALIZEI TODAS AS FUNÇOES PARA CRIAÇAO DE FUNCIONARIOS E RESPECTIVAS TROCAS COMO DELETAR E MOSTRA-LOS.
 	//2016
@@ -7,7 +10,6 @@
 	//Sistema acqua lokos
 	//Nao foram usados metodos avançados, tenho como objetivo recriar o mesmo sistema em Cake PHP e tranforma-lo em um sistema MVC
 	$conexao = mysqli_connect("localhost","root","","acqualokos");
-
 //Loga no sistema, buscando uma linha que tenha exatamente o mesmo id e extamente o mesmo usuario
 	function logar($conexao,$id,$senha){
 			$select = mysqli_query($conexao,"select id,senha from usuario where id=$id and senha='$senha'");
@@ -25,29 +27,24 @@
 	function mostrarFuncionario($conexao){
 		return mysqli_query($conexao,"select * from funcionario");
 	}
-
 	function cadastrarFuncionario($conexao,$nome,$email,$setor,$funcao){
 		mysqli_query($conexao,"insert into funcionario(nome,email,setor,funcao) value('$nome','$email','$setor','$funcao')");
 	}
-
 	function deletarFuncionario($conexao,$id){
 		mysqli_query($conexao,"delete from funcionario where id=$id");
 		mysqli_query($conexao,"delete from usuario where id=$id");
 	}
 //Usuarios
-	function mostrarUsuario($conexao)
-	{
+	function mostrarUsuario($conexao){
 		return mysqli_query($conexao,"select usuario.id,funcionario.id,nome,senha,acesso from usuario join funcionario on usuario.id = funcionario.id ");
 	}
 	function mostrarUsuarioE($conexao,$id)
 	{
 		return mysqli_query($conexao,"select usuario.id,funcionario.id,nome from usuario join funcionario on usuario.id = funcionario.id where funcionario.id =$id");
 	}
-
 	function cadastrarUsuario($conexao,$id,$senha,$acesso){
 		mysqli_query($conexao,"insert into usuario(id,senha,acesso) values('$id','$senha','$acesso')");
 	}
-
 	function deletarUsuario($conexao,$id){
 		mysqli_query($conexao,"delete from usuario where id=$id");
 	}
@@ -67,6 +64,41 @@
 	}
 	function deletarChamado($conexao,$id){
 		return mysqli_query($conexao,"DELETE FROM chamado WHERE id=$id");
+	}    
+ 	function sucessoChamado($conexao,$id){
+        try{
+            //Ele vai inserir todo conteudo que ele selecionar dentro do chamado e colocará dentro do chamado_concluido.
+            mysqli_query($conexao,"insert into chamado_concluido(id,problema,problema_opcao,nome,criador,n0,n1,n2,prazo,data,datainicial,hora,situacao,status,descricao) select id,problema,problema_opcao,nome,criador,n0,n1,n2,prazo,data,datainicial,hora,situacao,status,descricao from chamado where id=$id");
+            //E por fim vai deletar se der algo errado e retornará verdadeiro (true)
+            mysqli_query($conexao,"DELETE FROM chamado WHERE id=$id");
+            return true;
+        }catch(Exception $e){
+            //caso de algum erro retornará falso.
+            return false;
+        }
+        
+             
+    }
+	function mostrarModificar($conexao,$id){
+		return mysqli_query($conexao,"select * from chamado where id=$id");
+	}
+	function modificarChamado($conexao,$id,$problema,$problema_opcao,$nome,$criador,$n0,$n1,$n2,$prazo,$data,$data_i,$hora,$status,$descricao){	
+		try {
+			mysqli_query($conexao,"update chamado set problema='$problema',problema_opcao='$problema_opcao',nome='$nome',criador='$criador',n0='$n0',n1='$n1',n2='$n2',prazo=$prazo,data='$data',datainicial='$data_i',hora='$hora',status='$status',descricao='$descricao' where id=$id");
+			echo "deu";
+		} catch (Exception $e) {
+			echo 'Mensagem do erro, e procedimentos a executar caso haja o erro: ', $e->getMessage(), "\n";
+		}
+	}
+	function situacaoChamado($conexao,$id){
+		if(mysqli_query($conexao,"update chamado set situacao='Atrasado' where id=$id")){
+			return true;
+		}
+	}
+	function situacaoChamadoAndamento($conexao,$id){
+		if(mysqli_query($conexao,"update chamado set situacao='Em Prazo' where id=$id")){
+			return true;
+		}
 	}
 //Inventário
 	function criarInventario($conexao,$nome,$usuario,$sistema,$office,$teamv,$auto,$queops,$setor){

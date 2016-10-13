@@ -16,6 +16,9 @@
 						if(Acesso($conexao,$id_u)>=3){
 							echo "<li><a href='inventario.php'>Inventário</a></li>";
 						}	
+						if(Acesso($conexao,$id_u)>=0){
+							echo "<li><a href='report.php'>Reportar Erro</a></li>";
+						}
 						?>
 
 					</ul>

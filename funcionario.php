@@ -11,7 +11,6 @@
 		<!--  Barra de administração onde fica o nome de bem vindo-->
 		<center> <?php include("header.php");?> </center>
 		<?php include("menu.php") ?>
-		
 		<div class="container section-home">
 			<?php 
 				if(isset($_GET['sucesso'])=="1"){
@@ -20,13 +19,12 @@
 					echo "<div class='no'>Ocorreu um erro</div>";
 				}
 			 ?>
-
 			<h2>Cadastrar Funcionário</h2>
 			<form action="sistema/cadastrarFuncionario.php" method="post">
 			<table>
 					<tr>
 						<td>Nome</td>
-						<td><input type="text" name="nome_f"></td>
+						<td><input type="text" name="nome_f" required></td>
 					</tr>
 					<tr>
 						<td>E-mail</th>
@@ -35,7 +33,7 @@
 					<tr>
 						<td>Setor</td>
 						<td>
-							<select name="setor_f" id="">
+							<select name="setor_f" id="" required>
 								<option value="tecnologia">tecnologia</option>
 							</select>
 						</td>
@@ -43,7 +41,7 @@
 					<tr>
 						<td>Função</td>
 						<td>
-							<select name="funcao_f" id="">
+							<select name="funcao_f" id="" required>
 								<option value="Auxiliar">Auxiliar</option>
 							</select>
 						</td>

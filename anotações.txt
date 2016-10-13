@@ -16,7 +16,7 @@
 10-Criar um chamado
 11-Verificar chamado
 12-Excluir um chamado
-13-Modificar um chamado
+13-Modificar um chamado (EM ANDAMENTO)
 14-Refinar sistema de chamado (Layout, imagens,Limite de caracteres na descrição)
 15-Verificação de prazo constante
 16-Enviar email ao concluir o prazo determinado pelo criador do chamado

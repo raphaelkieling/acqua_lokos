@@ -60,4 +60,12 @@
 					$nome = $_GET['filtrot'];
 					$select  = mysqli_query($conexao,"select * from chamado where problema_opcao like '%Defeito%' order by problema_opcao asc");
 				}
+                // Pega todos os concluidos
+				if($_GET['filtro']=="8" && $_GET['filtrot']==""){
+					$select  = mysqli_query($conexao,"select * from chamado_concluido order by nome");
+				}
+				if($_GET['filtro']=="8" && $_GET['filtrot']!=""){
+					$nome = $_GET['filtrot'];
+					$select  = mysqli_query($conexao,"select * from chamado_concluido where problema like '%$nome%' order by nome");
+				}
 ?>
