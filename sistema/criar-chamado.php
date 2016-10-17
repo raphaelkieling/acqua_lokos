@@ -4,11 +4,11 @@
 	$problema_opcao= $_POST['tipoProblema'];
 	$usuario_c     = $_POST['usuario_c'];
 	$funcionario_c = $_POST['funcionario_c'];
-	$data_c        = $_POST['data_c'];
+	//$data_c        = $_POST['data_c'];
 	$data_c        = date('d/m/Y');
 	$data_c_i      = date('d/m/Y');
 	$hora_c        = $_POST['hora_c'];
-	$prazo_c       = "0";
+	$prazo_c       = "2";
 	$n0            = $_POST['n0_c'];
 	$n1            = $_POST['n1_c'];
 	$n2            = $_POST['n2_c'];

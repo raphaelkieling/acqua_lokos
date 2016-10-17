@@ -15,13 +15,10 @@
 		<?php include("menu.php") ?>
 		
 		<div class="container section-home">
-			<?php 
-				if(isset($_GET['sucesso'])=="1"){
-					echo "<div class='yes'>Sucesso</div>";
-				}else if(isset($_GET['cadastrado'])=="2"){
-					echo "<div class='no'>Ocorreu um erro</div>";
-				}
-			 ?>
+		
+		<!--		INCLUI A BARRA DE SUCESSO-->
+			<?php include("barra-sucesso.php");?>
+			
 
 			<h2>Cadastrar Usuário</h2>
 			<form action="sistema/cadastrarUsuario.php" method="post">

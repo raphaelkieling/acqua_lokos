@@ -54,11 +54,11 @@
 				}
 				// Ordena pela opcao DUVIDA
 				if($_GET['filtro']=="7" && $_GET['filtrot']==""){
-					$select  = mysqli_query($conexao,"select * from chamado  where problema_opcao ='Defeito' order by problema_opcao asc");
+					$select  = mysqli_query($conexao,"select * from chamado  where problema_opcao ='Problema' order by problema_opcao asc");
 				}
 				if($_GET['filtro']=="7" && $_GET['filtrot']!=""){
 					$nome = $_GET['filtrot'];
-					$select  = mysqli_query($conexao,"select * from chamado where problema_opcao like '%Defeito%' order by problema_opcao asc");
+					$select  = mysqli_query($conexao,"select * from chamado where problema_opcao like '%Problema%' order by problema_opcao asc");
 				}
                 // Pega todos os concluidos
 				if($_GET['filtro']=="8" && $_GET['filtrot']==""){

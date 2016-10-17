@@ -111,4 +111,21 @@
 	function deletarInventario($conexao,$id){
 		return mysqli_query($conexao,"DELETE FROM inventario WHERE id=$id");
 	}
+//REPORT
+	function criarReport($conexao,$categoria,$descricao){
+		mysqli_query($conexao,"insert into erros(categoria,descricao) values('$categoria','$descricao')");
+	}
+	function verificaReport($conexao){
+		$select = mysqli_query($conexao,"select * from erros");
+		$erros = 0;
+		while($erro = mysqli_fetch_assoc($select)){
+			$erros +=1;
+		}
+		if($erros<=0){
+			return false;
+		}else{
+			return $erros;
+		}
+	
+	}
 	?>

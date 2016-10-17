@@ -15,7 +15,7 @@
 				echo "Sistema 2016 - Acqua Lokos";
 			}
 		?>
-
+		<div class="clear"></div>
 	</div> 
 	<header>
 			<img src="img/logo.png" alt="">

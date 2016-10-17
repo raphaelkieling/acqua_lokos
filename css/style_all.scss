@@ -8,18 +8,29 @@ $font-padrao:"Lato",sans-serif;
 $font-texto:"Arial",serif;
 
 $cor-barra:#2e2e2e;
+
 $cor-padrao:#3d9ccb;
 $cor-auxiliar:#225a77;
 $branco:#ffffff;
 
+$cor-yes:#2abb67;
+$cor-bug-no: #e74c3c;
+
+@mixin notificacao($cor){
+	width: $width-full;
+	color: white;
+	background: $cor;
+	padding: 5px;
+	text-align: center;
+	animation: 1s fade-in-yes;
+}
+	
+//CSS COMEÇA AQUI
 *{
 	font-family: $font-padrao;
 	box-sizing: border-box;
 	font-size: 16px;
 	font-weight: normal;
-}
-.clear{
-	clear: both;
 }
 input , select{
 	width: 300px;
@@ -29,7 +40,6 @@ input , select{
 	margin-top: 30px;
 	padding: 2px;
 }
-
 input[type="submit"]{
 	border: none;
 	width: 100%;
@@ -43,22 +53,22 @@ input[type="submit"]:hover{
 	opacity: 0.7;
 	cursor: pointer;
 }
-
+.clear{
+	clear: both;
+}
 .yes{
-	width: $width-full;
-	color: white;
-	background: #2abb67;
-	padding: 5px;
-	text-align: center;
-	animation: 1s fade-in-yes;
+	@include notificacao($cor-yes);
 }
 .no{
-	width: $width-full;
-	color: white;
-	background: #e74c3c;
-	padding: 5px;
-	text-align: center;
-	animation: 1s fade-in-yes;
+	@include notificacao($cor-bug-no);
+}
+.bug{
+	@include notificacao($cor-bug-no);
+	margin-bottom: 10px;
+}
+.bug img{
+	width:50px;
+	height: 50px;
 }
 .bordb td , .bordb th{
 	border-bottom: 1px solid #acc2ff;
@@ -109,6 +119,10 @@ h2{
 		#bar-adm a{
 			color: rgb(231, 76, 60);
 			padding-left: 10px;
+			padding-right: 10px;
+			border:solid 1px;
+			border-radius: 4px;
+			float:right;
 		}
 	/* Header */
 		header{
@@ -164,7 +178,7 @@ h2{
 		/*Conteudo do home*/
 		.section-home{
 			margin-top: 10px;
-			background:$branco;
+			background:red;
 			padding: 10px;
 			color:$cor-auxiliar;
 			font-weight: bold;
@@ -172,7 +186,7 @@ h2{
 		.section-home article{
 			margin-top: 10px;
 			padding: 10px;
-			width: 98%;
+			width: 100%;
 			border: solid 1px;
 			color: #e74c3c;
 		}

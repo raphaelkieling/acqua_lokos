@@ -1,8 +1,8 @@
-
-*{
-	font-family: "Lato",sans-serif;
+* {
+	font-family: "Lato", sans-serif;
 }
-table{
+
+table {
 	width: 100%;
 	clear: both;
 	width: 100%;
@@ -11,19 +11,22 @@ table{
 	padding: 5px;
 	margin-top: 10px;
 }
-table td{
-	padding: 10px;
 
+table td {
+	padding: 10px;
 }
-table th{
+
+table th {
 	float: left;
 	position: relative;
 	top: 10px;
 }
-.ultimo{
+
+.ultimo {
 	border: none;
 }
-.container-c{
+
+.container-c {
 	margin: 0 auto;
 	max-width: 800px;
 }
