@@ -8,7 +8,7 @@
 		if(isset($_SESSION['id']))
 			{
 				echo "Ola usuário de id <i>".$id_u. "</i>. Seja muito bem-vindo!";
-				echo "<a href='sistema/deslogar.php'>Sair</a>";
+				echo "<a href='sistema/deslogar.php'>Sair</a><a href='sistema/deslogar.php'>Developer</a>" ;
 			}
 			else
 			{
