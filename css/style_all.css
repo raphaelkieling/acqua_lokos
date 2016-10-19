@@ -107,9 +107,7 @@ h2 {
   color: #e74c3c;
   padding-left: 10px;
   padding-right: 10px;
-  border: solid 1px;
-  border-radius: 4px;
-  float: right; }
+  border-radius: 4px;}
 
 /* Header */
 header {
@@ -149,7 +147,8 @@ nav {
   color: #ffffff;
   width: 100%;
   background: #225a77;
-  text-align: left; }
+  text-align: left; 
+}
 
 nav ul li {
   display: inline-block;
@@ -282,5 +281,7 @@ textarea {
 /* Inventario */
 .noveoito input, .noveoito select {
   width: 98%; }
-
+input[type=radio], input[type=checkbox] {
+    height: 20px; width: 20px;
+}
 /*# sourceMappingURL=style_all.css.map */

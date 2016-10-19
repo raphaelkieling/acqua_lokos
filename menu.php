@@ -15,16 +15,14 @@
 						}
 						if(Acesso($conexao,$id_u)>=3){
 							echo "<li><a href='inventario.php'>Inventário</a></li>";
+							echo "<li><a href='telefonia.php'>Telefonia</a></li>";
 						}	
 						if(Acesso($conexao,$id_u)>=0){
 							echo "<li><a href='report.php'>Reportar Erro</a></li>";
 						}
+						
 						?>
-
 					</ul>
 				</div>
 	</nav>
 	<script src="js/jquery-3.1.1.js"></script>
-	<script>
-		
-	</script>

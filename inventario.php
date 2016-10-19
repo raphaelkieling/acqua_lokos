@@ -40,12 +40,10 @@
 						<table class="noveoito">
 							<tr>
 								<th>Nome Computador:</th>
-								<th>Usuário:</th>
+								<th>Funcionário:</th>
+								<th>Tipo</th>
 								<th>Sistema:</th>
-								<th>Office:</th>
-								<th>TeamV:</th>
-								<th>AutomatizeSis:</th>
-								<th>Queóps:</th>
+								<th>Setor:</th>
 							</tr>
 							<tr>
 								<td>
@@ -62,6 +60,14 @@
 									</select>
 								</td>
 								<td>
+									<select name="tipo" id="">
+										<option value="Catraca">Catraca</option>
+										<option value="Computador">Computador</option>
+										<option value="Notebook">Notebook</option>
+										<option value="Roteador">Roteador</option>
+									</select>
+								</td>
+								<td>
 									<select name="sistema" id="">
 										<option value="Windows XP">Windows XP</option>
 										<option value="Windows 8">Windows 8</option>
@@ -70,6 +76,25 @@
 										<option value="Outro">Outro</option>
 									</select>
 								</td>
+								<td colspan="3">
+									<select name="setor" id="" class="noveoito">
+										<option value="Bilheteria">Bilheteria</option>
+										<option value="CallCenter">CallCenter</option>
+										<option value="Recepção">Recepção</option>
+										<option value="Financeiro">Financeiro</option>
+									</select>
+								</td>
+							</tr>						
+							<tr>
+								<th>Office:</th>
+								<th>TeamV:</th>
+								<th>AutomatizeSis:</th>
+								<th>Queóps:</th>
+								<th>HD</th>
+								<th>Processador</th>
+								<th>Memoria</th>
+							</tr>
+							<tr>
 								<td>
 									<input name="office" type="checkbox" value="0">
 								</td>
@@ -82,16 +107,30 @@
 								<td>
 									<input name="queops" type="checkbox" value="0">
 								</td>
+								<td>
+									<input name="hd" type="checkbox" value="0">
+								</td>
+								<td>
+									<input name="processador" type="checkbox" value="0">
+								</td>
+								<td>
+									<input name="memoria" type="checkbox" value="0">
+								</td>
 							</tr>
 							<tr>
-								<th>Setor:</th>
-								<td colspan="6">
-									<select name="setor" id="" class="noveoito">
-										<option value="Bilheteria">Bilheteria</option>
-										<option value="CallCenter">CallCenter</option>
-										<option value="Recepção">Recepção</option>
-										<option value="Financeiro">Financeiro</option>
-									</select>
+								<th colspan="2">Fabricante</th>
+								<th>Ano</th>
+								<th>IP FIXO</th>						
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="text" name="fabricante">
+								</td>
+								<td>
+									<input type="number" name="ano">
+								</td>
+								<td>
+									<input type="number" name="ip">
 								</td>
 							</tr>
 							<tr>
@@ -100,6 +139,7 @@
 								</td>
 							</tr>
 						</table>
+							
 						<table class="bordb">
 							<tr>
 								<th>Id</th>
@@ -110,6 +150,7 @@
 								<th>Team Viewer</th>
 								<th>AutomatizeSis</th>
 								<th>Queops</th>
+								<th>HD</th>
 								<th>Setor</th>
 								<th>Excluir</th>
 							</tr>
@@ -140,6 +181,9 @@
 									</td>
 									<td>
 										<?php if(isset($inventario['queops']) && $inventario['queops']=="1"){echo "Sim";}else{echo "-";} ?>
+									</td>
+									<td>
+										<?php if(isset($inventario['hd']) && $inventario['hd']=="1"){echo "Sim";}else{echo "-";} ?>
 									</td>
 									<td>
 										<?= $inventario['setor_i'] ?>

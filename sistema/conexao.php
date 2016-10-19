@@ -28,12 +28,21 @@
 		return mysqli_query($conexao,"select * from funcionario");
 	}
 	function cadastrarFuncionario($conexao,$nome,$email,$setor,$funcao){
-		mysqli_query($conexao,"insert into funcionario(nome,email,setor,funcao) value('$nome','$email','$setor','$funcao')");
+		if(mysqli_query($conexao,"insert into funcionario(nome,email,setor,funcao) value('$nome','$email','$setor','$funcao')")){
+				return true;
+		}else{
+				return false;
+		}
 	}
 	function deletarFuncionario($conexao,$id){
-		mysqli_query($conexao,"delete from funcionario where id=$id");
-		mysqli_query($conexao,"delete from usuario where id=$id");
+		if(mysqli_query($conexao,"delete from funcionario where id=$id")){
+					mysqli_query($conexao,"delete from usuario where id=$id");
+					return true;
+				}else{
+						return false;
+				}
 	}
+
 //Usuarios
 	function mostrarUsuario($conexao){
 		return mysqli_query($conexao,"select usuario.id,funcionario.id,nome,senha,acesso from usuario join funcionario on usuario.id = funcionario.id ");
@@ -43,10 +52,18 @@
 		return mysqli_query($conexao,"select usuario.id,funcionario.id,nome from usuario join funcionario on usuario.id = funcionario.id where funcionario.id =$id");
 	}
 	function cadastrarUsuario($conexao,$id,$senha,$acesso){
-		mysqli_query($conexao,"insert into usuario(id,senha,acesso) values('$id','$senha','$acesso')");
+		if(mysqli_query($conexao,"insert into usuario(id,senha,acesso) values('$id','$senha','$acesso')")){
+				return true;
+		}else{
+				return false;
+		}
 	}
 	function deletarUsuario($conexao,$id){
-		mysqli_query($conexao,"delete from usuario where id=$id");
+		if(mysqli_query($conexao,"delete from usuario where id=$id")){
+					return true;
+		}else{
+						return false;
+		}	
 	}
 //Acesso
 	function Acesso($conexao,$id){
@@ -63,7 +80,11 @@
 		mysqli_query($conexao,"insert into chamado(problema,problema_opcao,nome,criador,n0,n1,n2,prazo,data,datainicial,hora,status,descricao) values('$problema','$problema_opcao','$nome','$criador','$n0','$n1','$n2','$prazo','$data','$data_i','$hora','$status','$descricao')");
 	}
 	function deletarChamado($conexao,$id){
-		return mysqli_query($conexao,"DELETE FROM chamado WHERE id=$id");
+		if(mysqli_query($conexao,"DELETE FROM chamado WHERE id=$id")){
+			return true;
+		}else{
+				return false;
+		}
 	}    
  	function sucessoChamado($conexao,$id){
         try{
@@ -101,15 +122,19 @@
 		}
 	}
 //Inventário
-	function criarInventario($conexao,$nome,$usuario,$sistema,$office,$teamv,$auto,$queops,$setor){
-		mysqli_query($conexao,"INSERT INTO inventario(nome_c,usuario_c,sistema,office,teamv,automatize,queops,setor_i) VALUES('$nome','$usuario','$sistema','$office','$teamv','$auto','$queops','$setor')");
+	function criarInventario($conexao,$nome,$usuario,$sistema,$office,$teamv,$auto,$queops,$hd,$processador,$memoria,$setor,$tipo,$fabricante,$ano,$ip){
+		mysqli_query($conexao,"INSERT INTO inventario(nome_c,usuario_c,sistema,office,teamv,automatize,queops,hd,processador,memoria,setor_i,tipo,fabricante,ano,ip) VALUES('$nome','$usuario','$sistema','$office','$teamv','$auto','$queops','$hd','$processador','$memoria','$setor','$tipo','$fabricante','$ano','$ip')");
 		return 1;
 	}
 	function mostrarInventario($conexao){
-		return mysqli_query($conexao,"SELECT inventario.id,funcionario.id,nome,nome_c,usuario_c,sistema,office,teamv,automatize,queops,setor_i FROM inventario JOIN funcionario ON usuario_c = funcionario.id order by setor_i asc");
+		return mysqli_query($conexao,"SELECT inventario.id,funcionario.id,hd,memoria,processador,fabricante,ano,ip,tipo,nome,nome_c,usuario_c,sistema,office,teamv,automatize,queops,setor_i FROM inventario JOIN funcionario ON usuario_c = funcionario.id order by setor_i asc");
 	}
 	function deletarInventario($conexao,$id){
-		return mysqli_query($conexao,"DELETE FROM inventario WHERE id=$id");
+		if(mysqli_query($conexao,"DELETE FROM inventario WHERE id=$id")){
+			return true;
+		}else{
+			return false;
+		}
 	}
 //REPORT
 	function criarReport($conexao,$categoria,$descricao){
@@ -126,6 +151,24 @@
 		}else{
 			return $erros;
 		}
-	
-	}
+	//TELEFONIA
+		}
+			function criaTelefone($conexao,$funcionario,$telefone){
+					if(mysqli_query($conexao,"insert into telefonia(funcionario,telefone) values('$funcionario','$telefone')")){
+							return true;
+					}else{
+							return false;
+					}
+			}
+			function mostrarTelefone($conexao){
+					return mysqli_query($conexao,"select telefonia.id as idt,funcionario.id,nome,telefone from telefonia join funcionario on funcionario.id = telefonia.funcionario order by nome asc");
+			}
+		function deletarTelefone($conexao,$id){
+				if(mysqli_query($conexao,"DELETE FROM telefonia WHERE id=$id")){
+					return true;
+				}else{
+						return false;
+				}
+		}
+
 	?>
