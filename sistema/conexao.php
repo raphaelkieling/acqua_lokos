@@ -147,12 +147,13 @@
 			$erros +=1;
 		}
 		if($erros<=0){
-			return false;
+			return true;
 		}else{
 			return $erros;
 		}
+	}
 	//TELEFONIA
-		}
+	
 			function criaTelefone($conexao,$funcionario,$telefone){
 					if(mysqli_query($conexao,"insert into telefonia(funcionario,telefone) values('$funcionario','$telefone')")){
 							return true;
@@ -170,5 +171,4 @@
 						return false;
 				}
 		}
-
-	?>
+?>

@@ -8,16 +8,15 @@
 	//descricao chamado
 	//nome criado
 	//ip criador
+
 	include('sistema/logar.php');
 	session_start();
 	if(isset($_SESSION['id'])){
 		$id_u = $_SESSION['id'];?>
 	<!-- Caso exista um usuario ele faz tudo se nao, ele sai -->
-
 	<head>
 		<!-- Estilo da pagina -->
 		<?php include("estilo.php") ?>
-
 	</head>
 
 	<body>
@@ -52,11 +51,11 @@
 								<td>
 									<select name="usuario_c" id="">
 										<?php 
-							$select = mostrarFuncionario($conexao);
-							while($funcionario = mysqli_fetch_assoc($select)){
-								echo"<option value=".$funcionario['id'].">".$funcionario['nome']."</option>";
-							}
-							?>
+											$select = mostrarFuncionario($conexao);
+											while($funcionario = mysqli_fetch_assoc($select)){
+												echo"<option value=".$funcionario['id'].">".$funcionario['nome']."</option>";
+											}
+											?>
 									</select>
 								</td>
 								<td>
@@ -155,43 +154,42 @@
 								<th>Excluir</th>
 							</tr>
 							<?php 
-					$select = mostrarInventario($conexao);
-					while($inventario = mysqli_fetch_assoc($select)){ ?>
-								<tr>
-									<td>
-										<?= $inventario['id'] ?>
-									</td>
-									<td>
-										<?= $inventario['nome_c'] ?>
-									</td>
-									<td>
-										<?= $inventario['nome'] ?>
-									</td>
-									<td>
-										<?= $inventario['sistema'] ?>
-									</td>
-									<td>
-										<?php if(isset($inventario['office']) && $inventario['office']=="1"){echo "Sim";}else{echo "-";} ?>
-									</td>
-									<td>
-										<?php if(isset($inventario['teamv']) && $inventario['teamv']=="1"){echo "Sim";}else{echo "-";} ?>
-									</td>
-									<td>
-										<?php if(isset($inventario['automatize']) && $inventario['automatize']=="1"){echo "Sim";}else{echo "-";} ?>
-									</td>
-									<td>
-										<?php if(isset($inventario['queops']) && $inventario['queops']=="1"){echo "Sim";}else{echo "-";} ?>
-									</td>
-									<td>
-										<?php if(isset($inventario['hd']) && $inventario['hd']=="1"){echo "Sim";}else{echo "-";} ?>
-									</td>
-									<td>
-										<?= $inventario['setor_i'] ?>
-									</td>
-									<td><a href=<?php echo 'sistema/deletarInventario.php?id='.$inventario[ 'id']; ?>><img src="img/delete.png" alt=""></a></td>
-								</tr>
-
-								<?php } ?>
+							$select = mostrarInventario($conexao);
+							while($inventario = mysqli_fetch_assoc($select)){ ?>
+							<tr>
+								<td>
+									<?= $inventario['id'] ?>
+								</td>
+								<td>
+									<?= $inventario['nome_c'] ?>
+								</td>
+								<td>
+									<?= $inventario['nome'] ?>
+								</td>
+								<td>
+									<?= $inventario['sistema'] ?>
+								</td>
+								<td>
+									<?php if(isset($inventario['office']) && $inventario['office']=="1"){echo "Sim";}else{echo "-";} ?>
+								</td> 
+								<td>
+									<?php if(isset($inventario['teamv']) && $inventario['teamv']=="1"){echo "Sim";}else{echo "-";} ?>
+								</td>
+								<td>
+									<?php if(isset($inventario['automatize']) && $inventario['automatize']=="1"){echo "Sim";}else{echo "-";} ?>
+								</td>
+								<td>
+									<?php if(isset($inventario['queops']) && $inventario['queops']=="1"){echo "Sim";}else{echo "-";} ?>
+								</td>
+								<td>
+									<?php if(isset($inventario['hd']) && $inventario['hd']=="1"){echo "Sim";}else{echo "-";} ?>
+								</td>
+								<td>
+									<?= $inventario['setor_i'] ?>
+								</td>
+								<td><a href=<?php echo 'sistema/deletarInventario.php?id='.$inventario[ 'id']; ?>><img src="img/delete.png" alt=""></a></td>
+							</tr>
+						<?php } ?>
 						</table>
 				</div>
 		</form>
