@@ -158,7 +158,7 @@
 							while($inventario = mysqli_fetch_assoc($select)){ ?>
 							<tr>
 								<td>
-									<?= $inventario['id'] ?>
+									<?= $inventario['fid'] ?> 
 								</td>
 								<td>
 									<?= $inventario['nome_c'] ?>
@@ -187,7 +187,7 @@
 								<td>
 									<?= $inventario['setor_i'] ?>
 								</td>
-								<td><a href=<?php echo 'sistema/deletarInventario.php?id='.$inventario[ 'id']; ?>><img src="img/delete.png" alt=""></a></td>
+								<td><a href=<?php echo 'sistema/deletarInventario.php?id='.$inventario[ 'fid']; ?>><img src="img/delete.png" alt=""></a></td>
 							</tr>
 						<?php } ?>
 						</table>

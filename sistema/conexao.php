@@ -127,7 +127,7 @@
 		return 1;
 	}
 	function mostrarInventario($conexao){
-		return mysqli_query($conexao,"SELECT inventario.id,funcionario.id,hd,memoria,processador,fabricante,ano,ip,tipo,nome,nome_c,usuario_c,sistema,office,teamv,automatize,queops,setor_i FROM inventario JOIN funcionario ON usuario_c = funcionario.id order by setor_i asc");
+		return mysqli_query($conexao,"SELECT inventario.id as fid,funcionario.id,hd,memoria,processador,fabricante,ano,ip,tipo,nome,nome_c,usuario_c,sistema,office,teamv,automatize,queops,setor_i FROM inventario JOIN funcionario ON usuario_c = funcionario.id order by setor_i asc");
 	}
 	function deletarInventario($conexao,$id){
 		if(mysqli_query($conexao,"DELETE FROM inventario WHERE id=$id")){
