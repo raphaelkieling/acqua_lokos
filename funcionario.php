@@ -8,7 +8,6 @@
 	<head>
 		<?php include("estilo.php") ?>
 	</head>
-
 	<body>
 		<!--  Barra de administração onde fica o nome de bem vindo-->
 		<center>
@@ -18,7 +17,6 @@
 			<div class="container section-home">
 				<!--		INCLUI A BARRA DE SUCESSO-->
 				<?php include("barra-sucesso.php");?>
-
 					<h2>Cadastrar Funcionário</h2>
 					<form action="sistema/cadastrarFuncionario.php" method="post">
 						<table>
