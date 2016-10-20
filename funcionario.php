@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include('sistema/logar.php');
 	session_start();
 	if(isset($_SESSION['id'])=="true"){
@@ -16,7 +16,6 @@
 		</center>
 		<?php include("menu.php") ?>
 			<div class="container section-home">
-
 				<!--		INCLUI A BARRA DE SUCESSO-->
 				<?php include("barra-sucesso.php");?>
 
@@ -70,7 +69,7 @@
 							<th>Função</th>
 							<th>Deletar</th>
 						</tr>
-						<?php 
+						<?php
 					$select = mostrarFuncionario($conexao);
 					while($funcionario = mysqli_fetch_assoc($select)){ ?>
 							<tr>
@@ -99,7 +98,7 @@
 					</table>
 			</div>
 
-			<?php	
+			<?php
 	}else{
 		unset($_SESSION['id']);
 		header("location:index.php");

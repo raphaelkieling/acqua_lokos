@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include('sistema/logar.php');
 	session_start();
 	if(isset($_SESSION['id'])){
@@ -17,10 +17,9 @@
 		</center>
 		<?php include("menu.php") ?>
 			<div class="container section-home">
-
 				<!--		INCLUI A BARRA DE SUCESSO-->
 				<?php include("barra-sucesso.php");?>
-
+				
 					<!-- Chamados  -->
 					<h2>Chamados</h2>
 					<form action="chamados.php">
@@ -39,26 +38,19 @@
 						<tr><td><input name="filtrot" type="text" placeholder="Palavra chave...(OPCIONAL)"></td></tr>
 						<tr><td>	<input type="submit" value="Filtrar" id="filtrar-chamado"></td></tr>
 					</table>
-						
-
-						
-					
 					</form>
-
-					<?php 
-			
+					<?php
 		  include("filtros.php");
 		  while($chamado = mysqli_fetch_assoc($select)){?>
-						<?php if(Acesso($conexao,$id_u)>3 && $_GET['filtro']!="8"){ ?>
-							<!-- Botão de deletar -->
-							<a href="sistema/deletar-chamado.php?id=<?php echo $chamado['id'] ?>"><img src="img/delete_2.png" class="mais_chamado" alt=""></a>
-							<!-- Botão de mais! -->
-							<a href="chamado-completo.php?id=<?php echo $chamado['id'] ?>"><img src="img/mais.png" class="mais_chamado" alt=""></a>
-							<!-- Botão de modificar!-->
-							<a href="modificar-chamado.php?id_modificar=<?php echo $chamado['id'] ?>"><img src="img/configuracao.png" class="mais_chamado" alt=""></a>
-
-							<?php } ?>
 								<article>
+									<?php if(Acesso($conexao,$id_u)>3 && $_GET['filtro']!="8"){ ?>
+									<!-- Botão de deletar -->
+									<a href="#" id="<?= $chamado['id'] ?>" class="deleta"><img src="img/delete_2.png" class="mais_chamado" alt=""></a>
+									<!-- Botão de mais! -->
+									<a href="chamado-completo.php?id=<?php echo $chamado['id'] ?>"><img src="img/mais.png" class="mais_chamado" alt=""></a>
+									<!-- Botão de modificar!-->
+									<a href="modificar-chamado.php?id_modificar=<?php echo $chamado['id'] ?>"><img src="img/configuracao.png" class="mais_chamado" alt=""></a>
+									<?php } ?>
 									<div class="container-article">
 										<h2><?= $chamado['problema'] ?></h2>
 										<?= $chamado['descricao']  ?>
@@ -76,15 +68,31 @@
 									<div class="clear"></div>
 								</article>
 								<?php  } ?>
-
 			</div>
 			<script src="js/jquery-3.1.1.js"></script>
 			<script>
-				
+				$(function(){
+					$('.deleta').click(function(event){
+						var idc = $(this).attr('id');
+
+						if(confirm("Tem certeza?")){
+							$.ajax({
+								method:"GET",
+								url:"sistema/deletar-chamado.php",
+								data:{id:idc},
+								success:function(){
+								}
+							});
+							$(this).parent("article").animate({opacity:"0.0"},600,function(){
+								$(this).remove();
+							});
+						}
+					});
+				});
 			</script>
 	</body>
 
-	<?php 
+	<?php
 	}else{
 		unset($_SESSION['id']);
 		header("location:index.php");

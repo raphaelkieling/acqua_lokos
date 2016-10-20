@@ -80,7 +80,7 @@
 												$id_modificar = $_GET['id_modificar'];
 												$select = mostrarFuncionario($conexao);
 												while($funcionario = mysqli_fetch_assoc($select)){ ?>
-												<option value=< ?php echo $funcionario[ 'nome']; if($funcionario[ 'nome']==$criador) { echo " selected='selected'"; } ?>>
+												<option value="<?php echo $funcionario[ 'nome']; if($funcionario[ 'nome']==$criador) { echo " selected='selected'"; } ?>">
 													<?php echo $funcionario['nome']?>
 												</option>;
 
@@ -243,8 +243,8 @@
 									<td>ID Chamado</td>
 									<td>
 										<?php
-						echo "<input type='text' readonly name='id_mod' value=".$id.">";
-					?>
+											echo "<input type='text' readonly name='id_mod' value=".$id.">";
+										?>
 									</td>
 
 								</tr>
@@ -257,7 +257,7 @@
 								<tr>
 									<th>Descrição</th>
 									<td colspan="3">
-										<textarea name="descricao_c" id="" cols="30" rows="10" required>
+										<textarea name="descricao_c" id="" cols="5" rows="5" required>
 											<?= $descricao ?>
 										</textarea>
 									</td>

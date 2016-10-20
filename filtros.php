@@ -1,4 +1,4 @@
-<?php 
+<?php
 				// Nao ordena por nada
 				if(empty($_GET['filtro']) || $_GET['filtro']=="0"){
 					$_GET['filtro'] = "0";
@@ -60,7 +60,7 @@
 					$nome = $_GET['filtrot'];
 					$select  = mysqli_query($conexao,"select * from chamado where problema_opcao like '%Problema%' order by problema_opcao asc");
 				}
-                // Pega todos os concluidos
+      	// Pega todos os concluidos
 				if($_GET['filtro']=="8" && $_GET['filtrot']==""){
 					$select  = mysqli_query($conexao,"select * from chamado_concluido order by nome");
 				}

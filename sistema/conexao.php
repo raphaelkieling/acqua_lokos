@@ -105,7 +105,9 @@
 	}
 	function modificarChamado($conexao,$id,$problema,$problema_opcao,$nome,$criador,$n0,$n1,$n2,$prazo,$data,$data_i,$hora,$status,$descricao){	
 		try {
-			mysqli_query($conexao,"update chamado set problema='$problema',problema_opcao='$problema_opcao',nome='$nome',criador='$criador',n0='$n0',n1='$n1',n2='$n2',prazo=$prazo,data='$data',datainicial='$data_i',hora='$hora',status='$status',descricao='$descricao' where id=$id");
+			if(mysqli_query($conexao,"update chamado set problema='$problema',problema_opcao='$problema_opcao',nome='$nome',criador='$criador',n0='$n0',n1='$n1',n2='$n2',prazo=$prazo,data='$data',datainicial='$data_i',hora='$hora',status='$status',descricao='$descricao' where id=$id")){
+				return true;
+			}
 			echo "deu";
 		} catch (Exception $e) {
 			echo 'Mensagem do erro, e procedimentos a executar caso haja o erro: ', $e->getMessage(), "\n";
