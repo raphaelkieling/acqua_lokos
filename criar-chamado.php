@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//nome chamado
 	//data chamado
 	//cat  chamado
@@ -21,7 +21,7 @@
 	</head>
 
 	<body>
-		<form action="sistema/criar-chamado.php" method="post">
+		<form action="sistema/criar-chamado.php" method="post" name="chamadof">
 			<!--  Barra de administração onde fica o nome de bem vindo-->
 			<center>
 				<?php include("header.php");?>
@@ -42,7 +42,7 @@
 								<th>Criador</th>
 								<td>
 
-									<?php 
+									<?php
 							$select = mostrarUsuarioE($conexao,$id_u);
 							while($usuario = mysqli_fetch_assoc($select)){
 								echo "<input type='text' readonly name='usuario_c' value=".$usuario['nome'].">";
@@ -54,7 +54,7 @@
 									<!-- Select ja determina quem esta logando com a variavel $id_u e comparar com cada select feito se bater com quem
 						está logado ele deixa selecionado com a propriedade "selected='selected'" -->
 									<select name="funcionario_c" id="">
-										<?php 
+										<?php
 											$select = mostrarFuncionario($conexao);
 											while($funcionario = mysqli_fetch_assoc($select)){ ?>
 											<option value=<?php echo $funcionario[ 'nome']; if($funcionario[ 'id']==$id_u) { echo " selected='selected'"; } ?>>
@@ -67,14 +67,14 @@
 							<tr>
 								<th>Data</th>
 								<td>
-									<?php 
+									<?php
 							$data = date('d/m/y');
 							echo "<input type='text' name='data_c' readonly value=".$data.">";
 						?>
 								</td>
 								<th>Hora</th>
 								<td>
-									<?php  
+									<?php
 							date_default_timezone_set('America/Sao_Paulo');
 							$hora = date('H:i');
 							echo "<input type='text' name='hora_c' readonly value=".$hora.">";
@@ -92,13 +92,13 @@
 								<th>N1</th>
 								<td>
 									<select name="n1_c" id="">
-										<option value="">----TI----</option>
+										<option value="000">----TI----</option>
 										<option value="Hardware">Hardware</option>
 										<option value="Sistemas">Sistemas</option>
 										<option value="Windows e aplicativos">Windows e aplicativos</option>
 										<option value="Rede / Internet">Rede / Internet</option>
 										<option value="Telefonia">Telefonia</option>
-										<option value="">----RESERVAS----</option>
+										<option value="000">----RESERVAS----</option>
 										<option value="Boleto">Boleto</option>
 										<option value="Cartão">Cartão</option>
 										<option value="Reservas">Reservas</option>
@@ -210,9 +210,10 @@
 
 				</div>
 		</form>
+		<script src="js/formularios.js"></script>
 	</body>
 
-	<?php 
+	<?php
 	}else{
 		unset($_SESSION['id']);
 		header("location:index.php");

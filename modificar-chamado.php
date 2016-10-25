@@ -80,7 +80,7 @@
 												$id_modificar = $_GET['id_modificar'];
 												$select = mostrarFuncionario($conexao);
 												while($funcionario = mysqli_fetch_assoc($select)){ ?>
-												<option value="<?php echo $funcionario[ 'nome']; if($funcionario[ 'nome']==$criador) { echo " selected='selected'"; } ?>">
+												<option value="<?php echo $funcionario[ 'nome'].' " '; if($funcionario[ 'nome']==$criador) { echo "selected='selected'"; } ?>>
 													<?php echo $funcionario['nome']?>
 												</option>;
 
