@@ -28,8 +28,8 @@
 							<option value="0">Nada</option>
 							<option value="1">Criador do Chamado</option>
 							<option value="2">Data</option>
-							<option value="3">Menor Prazo</option>
-							<option value="4">Maior Prazo</option>
+							<option value="4">Menor Prazo</option>
+							<option value="3">Maior Prazo</option>
 							<option value="5">Descricao</option>
 							<option value="6">Dúvida</option>
 							<option value="7">Problema</option>

@@ -15,7 +15,6 @@
 	$descricao_c   = $_POST['descricao_c'];
 	$status_c      = "Enviado";
 	
-
 	if($prazo_c <=0){
 		$prazo_c = "0";
 	}else{
@@ -28,13 +27,10 @@
 	$data_c = DateTime::createFromFormat('d/m/Y', $data_c);
 	$data_c->add(new DateInterval('P'.$prazo_c.'D')); // 2 dias
 	$data_c =  $data_c->format('d/m/Y');
-
-
 	if(!criarChamado($conexao,$problema_c,$problema_opcao,$usuario_c,$funcionario_c,$n0,$n1,$n2,$prazo_c,$data_c,$data_c_i,$hora_c,$status_c,$descricao_c)){
 		header("location:../criar-chamado.php?sucesso=1");
 	}else{
 		$erro = mysqli_error($conexao);
 		echo "ocorreu que:" .$erro;
 	}
-
 ?>

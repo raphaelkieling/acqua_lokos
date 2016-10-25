@@ -30,7 +30,6 @@
 
 				<!-- Aparecer a barra de sucesso quando a pessoa se cadastrar com sucesso -->
 				<div class="container section-home">
-
 					<!--		INCLUI A BARRA DE SUCESSO-->
 					<?php include("barra-sucesso.php");?>
 
