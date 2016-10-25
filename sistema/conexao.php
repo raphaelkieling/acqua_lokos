@@ -1,5 +1,5 @@
 
-<?php
+<?php 
 	date_default_timezone_set('America/Sao_Paulo');
 	ini_set('display_errors',1);
 	ini_set('display_startup_erros',1);
@@ -63,7 +63,7 @@
 					return true;
 		}else{
 						return false;
-		}
+		}	
 	}
 //Acesso
 	function Acesso($conexao,$id){
@@ -85,7 +85,7 @@
 		}else{
 				return false;
 		}
-	}
+	}    
  	function sucessoChamado($conexao,$id){
         try{
             //Ele vai inserir todo conteudo que ele selecionar dentro do chamado e colocará dentro do chamado_concluido.
@@ -97,18 +97,21 @@
             //caso de algum erro retornará falso.
             return false;
         }
-
-
+        
+             
     }
 	function mostrarModificar($conexao,$id){
 		return mysqli_query($conexao,"select * from chamado where id=$id");
 	}
-	function modificarChamado($conexao,$id,$problema,$problema_opcao,$nome,$criador,$n0,$n1,$n2,$prazo,$data,$data_i,$hora,$status,$descricao){
+	function modificarChamado($conexao,$id,$problema,$problema_opcao,$nome,$criador,$n0,$n1,$n2,$prazo,$data,$data_i,$hora,$status,$descricao){	
+		try {
 			if(mysqli_query($conexao,"update chamado set problema='$problema',problema_opcao='$problema_opcao',nome='$nome',criador='$criador',n0='$n0',n1='$n1',n2='$n2',prazo=$prazo,data='$data',datainicial='$data_i',hora='$hora',status='$status',descricao='$descricao' where id=$id")){
 				return true;
-			}else{
-				return false;
 			}
+			echo "deu";
+		} catch (Exception $e) {
+			echo 'Mensagem do erro, e procedimentos a executar caso haja o erro: ', $e->getMessage(), "\n";
+		}
 	}
 	function situacaoChamado($conexao,$id){
 		if(mysqli_query($conexao,"update chamado set situacao='Atrasado' where id=$id")){
@@ -152,7 +155,7 @@
 		}
 	}
 	//TELEFONIA
-
+	
 			function criaTelefone($conexao,$funcionario,$telefone){
 					if(mysqli_query($conexao,"insert into telefonia(funcionario,telefone) values('$funcionario','$telefone')")){
 							return true;

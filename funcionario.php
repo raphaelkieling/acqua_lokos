@@ -72,19 +72,19 @@
 					while($funcionario = mysqli_fetch_assoc($select)){ ?>
 							<tr>
 								<td>
-									<?php echo $funcionario['id']?>
+									<?php echo $funcionario['id'] ?>
 								</td>
 								<td>
-									<?php echo $funcionario['nome']?>
+									<?php echo $funcionario['nome'] ?>
 								</td>
 								<td>
-									<?php echo $funcionario['email']?>
+									<?php echo $funcionario['email'] ?>
 								</td>
 								<td>
-									<?php echo $funcionario['setor']?>
+									<?php echo $funcionario['setor'] ?>
 								</td>
 								<td>
-									<?php echo $funcionario['funcao']?>
+									<?php echo $funcionario['funcao'] ?>
 								</td>
 								<td>
 									<a href=<?php echo "sistema/deletarFuncionario.php?id=".$funcionario[ 'id']; ?>><img src="img/delete_2.png" alt=""></a>
@@ -95,6 +95,7 @@
 				 ?>
 					</table>
 			</div>
+
 			<?php
 	}else{
 		unset($_SESSION['id']);
