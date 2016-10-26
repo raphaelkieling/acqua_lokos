@@ -139,18 +139,24 @@
 							</tr>
 						</table>
 							
-						<table class="bordb">
+						<table class="bordb inventario-table">
 							<tr>
 								<th>Id</th>
 								<th>Nome PC</th>
 								<th>Usuário</th>
 								<th>Sistema</th>
+								<th>Tipo</th>
+								<th>Setor</th>
+								<th>Fabricante</th>
+								<th>Ano</th>
+								<th>IP fixo</th>
 								<th>Office</th>
 								<th>Team Viewer</th>
 								<th>AutomatizeSis</th>
 								<th>Queops</th>
 								<th>HD</th>
-								<th>Setor</th>
+								<th>Processador</th>
+								<th>Memória</th>
 								<th>Excluir</th>
 							</tr>
 							<?php 
@@ -161,31 +167,49 @@
 									<?= $inventario['fid'] ?> 
 								</td>
 								<td>
-									<?= $inventario['nome_c'] ?>
+									<?= $inventario['nome_c'] ?> 
 								</td>
 								<td>
-									<?= $inventario['nome'] ?>
+									<?= $inventario['nome'] ?> 
 								</td>
 								<td>
-									<?= $inventario['sistema'] ?>
+									<?= $inventario['sistema'] ?> 
 								</td>
 								<td>
-									<?php if(isset($inventario['office']) && $inventario['office']=="1"){echo "Sim";}else{echo "-";} ?>
-								</td> 
-								<td>
-									<?php if(isset($inventario['teamv']) && $inventario['teamv']=="1"){echo "Sim";}else{echo "-";} ?>
+									<?= $inventario['tipo'] ?> 
 								</td>
 								<td>
-									<?php if(isset($inventario['automatize']) && $inventario['automatize']=="1"){echo "Sim";}else{echo "-";} ?>
+									<?= $inventario['setor_i'] ?> 
 								</td>
 								<td>
-									<?php if(isset($inventario['queops']) && $inventario['queops']=="1"){echo "Sim";}else{echo "-";} ?>
+									<?= $inventario['fabricante'] ?> 
 								</td>
 								<td>
-									<?php if(isset($inventario['hd']) && $inventario['hd']=="1"){echo "Sim";}else{echo "-";} ?>
+									<?= $inventario['ano'] ?> 
 								</td>
 								<td>
-									<?= $inventario['setor_i'] ?>
+									<?= $inventario['ip'] ?> 
+								</td>
+								<td>
+									<?php if($inventario['office'] =="1"){echo "X";}else{echo "-";} ?> 
+								</td>
+								<td>
+									<?php if($inventario['teamv'] =="1"){echo "X";}else{echo "-";} ?> 
+								</td>
+								<td>
+									<?php if($inventario['automatize'] =="1"){echo "X";}else{echo "-";} ?> 
+								</td>
+								<td>
+									<?php if($inventario['queops'] =="1"){echo "X";}else{echo "-";} ?> 
+								</td>
+								<td>
+									<?php if($inventario['hd'] =="1"){echo "X";}else{echo "-";} ?> 
+								</td>
+								<td>
+									<?php if($inventario['processador'] =="1"){echo "X";}else{echo "-";} ?> 
+								</td>
+									<td>
+									<?php if($inventario['memoria'] =="1"){echo "X";}else{echo "-";} ?> 
 								</td>
 								<td><a href=<?php echo 'sistema/deletarInventario.php?id='.$inventario[ 'fid']; ?>><img src="img/delete.png" alt=""></a></td>
 							</tr>

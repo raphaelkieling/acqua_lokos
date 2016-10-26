@@ -1,5 +1,0 @@
-+ Criar tabela para o "Reportar Erros"
-
-# Databaase
-- criar tabela para o "reportar erros"
-

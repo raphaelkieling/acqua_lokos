@@ -1,7 +1,7 @@
 <html>
 <head>
-	<link rel="stylesheet" href="css/grid.css">
-	<link rel="stylesheet" href="css/style_all.css">
+
+
 </head>
 	<div id="bar-adm">
 		<?php 
